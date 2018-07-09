@@ -377,6 +377,10 @@
             //编辑提交
             editSubmit() {
                 let active_at = Date.parse(this.editForm.active_at);
+                let now_time = new Date();
+                if(active_at <= now_time ) {
+                    //console.log('选择的时间不合法');
+                }
                 let oil_price = [this.editForm.num_92,this.editForm.num_95,this.editForm.num_98,this.editForm.num_93,this.editForm.num_97];
                 let params = {
                     oil_price: JSON.stringify(oil_price),

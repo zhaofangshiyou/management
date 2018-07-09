@@ -189,7 +189,7 @@
 				},
                 total: 0,
                 page_num: 1,
-                num: 10,
+                num: 15,
                 status_list: [
                     {id: 1, name: '启用'},
                     {id: 0,name: '禁用'}

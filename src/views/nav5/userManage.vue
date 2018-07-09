@@ -69,7 +69,7 @@
       return {
         card_no: '',
         page_num: 1,
-        num: 10,
+        num: 15,
         initList: [],
         listLoading: false,
         total: 0

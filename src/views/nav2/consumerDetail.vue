@@ -87,7 +87,7 @@
 			</el-table-column>
 			<el-table-column prop="station_name" label="站点名称" width="180">
 			</el-table-column>
-      <el-table-column prop="trade_no" label="流水号">
+      <el-table-column prop="trade_no" label="流水号" width="200">
 			</el-table-column>
 			<el-table-column prop="card_no" label="卡号" width="180">
 			</el-table-column>
@@ -95,7 +95,7 @@
 			</el-table-column>
 			<el-table-column prop="gum_num" label="油枪号">
 			</el-table-column>
-      <el-table-column prop="oil_name" label="油品信息">
+      <el-table-column prop="oil_name" label="油品信息" width="100">
 			</el-table-column>
 			<el-table-column prop="vol" label="升数" >
 			</el-table-column>
@@ -203,6 +203,7 @@
         })
       },
       getList: function(page_num,num,province_id,station_id,oil_id,begin_time,end_time,vol_min,vol_max,pay_channel){
+        this.listLoading = true;
         let params = {
           province_id: province_id,
           station_id: station_id,
@@ -216,6 +217,7 @@
           num: num
         };
         getConsumeDetail(params).then(res => {
+          this.listLoading = false;
           if(res.data.status === 0) {
             this.initList = res.data.data.consume_list;
             this.total = res.data.data.consume_list_cnt;
