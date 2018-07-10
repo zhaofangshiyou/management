@@ -24,6 +24,9 @@ import '../static/UE/lang/zh-cn/zh-cn.js'
 import '../static/UE/ueditor.parse.min.js'
 import global_ from './config/GLOBAL'//引用文件
 
+//自定义指令
+import focus from './common/directive/directive'
+
 Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(Vuex)
