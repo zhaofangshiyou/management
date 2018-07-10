@@ -20,6 +20,7 @@ import invoiceBack from './views/nav4/invoiceBack'
 import userManage from './views/nav5/userManage.vue'
 import userConsumerDetail from './views/nav5/userConsumerDetail.vue'
 import userBaseMeaasge from './views/nav5/userBaseMessage'
+import userChange from './views/nav5/userChange'
 import roleManage from './views/nav6/roleManage'
 import operatorManage from './views/nav6/operatorManage'
 import echarts from './views/charts/echarts.vue'
@@ -112,6 +113,7 @@ let routes = [
             { path: '/user_manage', component: userManage, name: '用户管理', id: 50 },
             { path: '/user_consumer_detail', component: userConsumerDetail, name: '用户消费明细', id: 51},
             { path: '/user_base_message', component: userBaseMeaasge, name: '用户基本信息', id: 52},
+            { path: '/user_change', component: userChange, name: '用户转移', id: 53},
         ]
     },
     {
