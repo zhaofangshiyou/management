@@ -185,3 +185,9 @@ export const getAdmin= (params) => { return instance.get(`${url}/backen/users/li
 //修改用户     /upd/:id
 export const editAdmin = (params,id) => { return instance.put(`${url}/backen/users/upd/${id}`, qs.stringify(params)); };
 
+
+//用户管理相关接口 /v1/backen/users
+
+//初始化小程序用户列表   /wx/list
+export const getWxUser= (params) => { return instance.get(`${url}/backen/users/wx/list`, { params: params }); };
+

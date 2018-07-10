@@ -83,7 +83,8 @@
 </script>
 <style>
     .card_item{
-        padding: 20px;
+        padding: 20px 20px 20px 0;
+        margin-left: 20px;
         border-bottom: 1px solid #E0E0E0;
         font-size:14px;
         font-family:PingFangSC-Regular;
@@ -91,6 +92,9 @@
     }
     .card_item:first-child{
         padding-top: 0;
+    }
+    .card_item:last-child{
+        margin-bottom: 36px;
     }
     .money{
         font-size:28px;
