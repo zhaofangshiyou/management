@@ -11,7 +11,7 @@
           <div class="tip"></div>
         </div>
         <el-form-item prop="account">
-          <el-input type="text" v-model="ruleForm2.account" auto-complete="off" placeholder="账号" v-focus="true"   @keyup.enter.native="handleSubmit2"></el-input>
+          <el-input type="text" v-model="ruleForm2.account" auto-complete="off"  :autofocus="true"  placeholder="账号"  @keyup.enter.native="handleSubmit2"></el-input>
         </el-form-item>
         <el-form-item prop="checkPass">
           <el-input type="password" v-model="ruleForm2.checkPass" auto-complete="off" placeholder="密码"  @keyup.enter.native="handleSubmit2"></el-input>
