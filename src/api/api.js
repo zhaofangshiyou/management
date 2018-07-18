@@ -194,3 +194,6 @@ export const getWxUser= (params) => { return instance.get(`${url}/backen/users/w
 //调试菜单
 //用户规则表
 export const userRule= (params) => { return instance.get(`${url}/backen/dev/discount/users`, { params: params }); };
+
+//临时流水    /orders
+export const tempOrder= (params) => { return instance.get(`${url}/backen/dev/orders`, { params: params }); };
