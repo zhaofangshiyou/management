@@ -190,6 +190,14 @@
                             {label: '全局配置', id: 70}, 
                         ]
                     },
+                    {
+                        id: 8,
+                        label: '调试菜单',
+                        children: [
+                            {label: '用户规则表', id: 80}, 
+                            {label: '临时流水表', id: 81}, 
+                        ]
+                    },
                 ],
                     defaultProps: {
                         children: 'children',

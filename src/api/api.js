@@ -13,7 +13,7 @@ let instance = axios.create({
   instance.interceptors.response.use(res => {
     if(res.data.status === 401 || res.data.status === 402) {
       localStorage.removeItem('user_id');
-      window.location.href = '/login';
+      window.location.href = '/#/login';
     } 
     return res;
   },function (error)  {
@@ -191,3 +191,6 @@ export const editAdmin = (params,id) => { return instance.put(`${url}/backen/use
 //初始化小程序用户列表   /wx/list
 export const getWxUser= (params) => { return instance.get(`${url}/backen/users/wx/list`, { params: params }); };
 
+//调试菜单
+//用户规则表
+export const userRule= (params) => { return instance.get(`${url}/backen/dev/discount/users`, { params: params }); };

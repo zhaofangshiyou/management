@@ -26,6 +26,8 @@ import operatorManage from './views/nav6/operatorManage'
 import echarts from './views/charts/echarts.vue'
 import welcome from './views/welcome/welcome'
 import global from './views/nav7/global'
+import tempFlow from './views/nav8/tempFlow'
+import userRule from './views/nav8/userRule'
 
 
 let routes = [
@@ -133,6 +135,16 @@ let routes = [
         iconCls: 'iconfont icon-setup',
         children: [
             { path: '/global', component: global, name: '全局配置', id: 70 },
+        ]
+    },
+    {
+        path: '/',
+        component: Home,
+        name: '调试菜单',
+        iconCls: 'iconfont icon-setup',
+        children: [
+            { path: '/user_rule', component: userRule, name: '用户规则表', id: 80 },
+            { path: '/temp_flow', component: tempFlow, name: '临时流水表', id: 81 },
         ]
     },
     // {
