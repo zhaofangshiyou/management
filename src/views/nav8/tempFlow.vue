@@ -68,13 +68,13 @@
         </el-table-column>
         <el-table-column prop="discount" label="优惠金额"  width="150">
         </el-table-column>
-        <el-table-column prop="discount_date_end" label="折扣" width="100">
+        <el-table-column prop="amount" label="升数" width="100">
         </el-table-column>
         <el-table-column prop="gun_id" label="枪号" width="100">
         </el-table-column>
         <el-table-column prop="oil_id" label="油品ID" width="100">
         </el-table-column>
-        <el-table-column prop="is_overlay" label="用户来源" width="150">
+        <el-table-column prop="come_channel" label="用户来源" width="150">
         </el-table-column>
         <el-table-column prop="created_at" label="创建时间" width="180">
         </el-table-column>
