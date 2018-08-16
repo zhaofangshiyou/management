@@ -1,19 +1,21 @@
 <template>
     <section>
         <!--工具条-->
+  <el-row>
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true">
-                <el-form-item label="手机号">
-                <el-input v-model="phone" placeholder="请输入手机号"></el-input>
+            <el-form-item label="手机号">
+                <el-input v-model="mobile" placeholder="请输入手机号"></el-input>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary"  v-on:click="search">查询</el-button>
+                <el-button type="primary"  v-on:click="handleSearch">查询</el-button>
             </el-form-item>
             <el-form-item>
-                <el-button type="success"  v-on:click="search">绑定</el-button>
+                <el-button type="success"  v-on:click="handleBind">绑定</el-button>
             </el-form-item>
 			</el-form>
 		</el-col>
+  </el-row>
 
         <!--列表-->
         <el-col :span="24">
@@ -27,11 +29,12 @@
                         <span class="card_title">公众号信息</span>
                     </div>
                     <div class="card_item">
-                        <div>卡内余额</div>
-                        <div class="money">￥2000</div>
+                        <div>卡号：10000000000</div>
+                        <div>卡内余额：<span class="money_color">2000</span>元</div>
                     </div>
                     <div class="card_item">
-                        <div>卡号：10035510541</div>
+                        <div>卡号：10000000000</div>
+                        <div>卡内余额：<span class="money_color">2000</span>元</div>
                     </div>
                     <div class="card_item">
                         <div>姓 名：兆小方</div>
@@ -47,11 +50,8 @@
                         <span class="card_title">小程序信息</span>
                     </div>
                     <div class="card_item">
-                        <div>卡内余额</div>
-                        <div class="money">￥0</div>
-                    </div>
-                    <div class="card_item">
-                        <div>卡号：10035510541</div>
+                        <div>卡号：10000000000</div>
+                        <div>卡内余额：<span class="money_color">2000</span>元</div>
                     </div>
                     <div class="card_item">
                         <div>姓 名：兆小方</div>
@@ -72,11 +72,12 @@
     export default {
         data() {
             return {
-                
+                mobile: ''
             }
         },
         methods: {
-           
+           handleBind: function() {},
+           handleSearch: function() {}
         }
     }
 
@@ -89,12 +90,17 @@
         font-size:14px;
         font-family:PingFangSC-Regular;
         color:rgba(51,51,51,1);
+        display: flex;
+        justify-content: space-between;
     }
     .card_item:first-child{
         padding-top: 0;
     }
     .card_item:last-child{
         margin-bottom: 36px;
+    }
+    .money_color{
+      color: #D71820;
     }
     .money{
         font-size:28px;
