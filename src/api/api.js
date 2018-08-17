@@ -197,3 +197,9 @@ export const userRule= (params) => { return instance.get(`${url}/backen/dev/disc
 
 //临时流水    /orders
 export const tempOrder= (params) => { return instance.get(`${url}/backen/dev/orders`, { params: params }); };
+
+//用户转移
+export const getExchangeMess= (params) => { return instance.get(`${url}/backen/users/wx/transfer`, { params: params }); };
+
+//绑定用户
+export const exchangeBind = params => { return instance.post(`${url}/backen/users/wx/transfer`, qs.stringify(params)); };

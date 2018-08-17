@@ -28,19 +28,15 @@
                     <div slot="header" class="clearfix">
                         <span class="card_title">公众号信息</span>
                     </div>
-                    <div class="card_item">
-                        <div>卡号：10000000000</div>
-                        <div>卡内余额：<span class="money_color">2000</span>元</div>
+                    <div class="card_item" v-for="item in gzh_ret"  v-show="gzh_ret.length > 0">
+                        <div>卡号：{{item.cardno}}</div>
+                        <div>卡内余额：<span class="money_color">{{item.balance}}</span>元</div>
                     </div>
                     <div class="card_item">
-                        <div>卡号：10000000000</div>
-                        <div>卡内余额：<span class="money_color">2000</span>元</div>
+                        <div>姓 名：{{zh_gzh_name}}</div>
                     </div>
                     <div class="card_item">
-                        <div>姓 名：兆小方</div>
-                    </div>
-                    <div class="card_item">
-                        <div>手机号：16620886066</div>
+                        <div>手机号：{{zh_gzh_phone}}</div>
                     </div>
                 </el-card>
             </el-col>
@@ -49,15 +45,15 @@
                     <div slot="header" class="clearfix">
                         <span class="card_title">小程序信息</span>
                     </div>
-                    <div class="card_item">
-                        <div>卡号：10000000000</div>
-                        <div>卡内余额：<span class="money_color">2000</span>元</div>
+                    <div class="card_item" v-if="xcx_ret.length > 0">
+                        <div>卡号：{{xcx_ret[0].card_no}}</div>
+                        <div>卡内余额：<span class="money_color">{{xcx_ret[0].person_balance}}</span>元</div>
                     </div>
                     <div class="card_item">
-                        <div>姓 名：兆小方</div>
+                        <div>姓 名：{{zh_xcx_name}}</div>
                     </div>
                     <div class="card_item">
-                        <div>手机号：16620886066</div>
+                        <div>手机号：{{zh_xcx_phone}}</div>
                     </div>
                 </el-card>
             </el-col>
@@ -68,16 +64,60 @@
     </section>
 </template>
 
-<script>  
+<script>
+import { getExchangeMess,exchangeBind } from '../../api/api';
+import { messageWarn } from '../../common/js/commonMethod';
+
     export default {
         data() {
             return {
-                mobile: ''
+                mobile: "",
+                gzh_ret: [],
+                xcx_ret: [],
+                zh_gzh_name: '-',
+                zh_xcx_name: '-',
+                zh_gzh_phone: '-',
+                zh_xcx_phone: '-'
             }
         },
         methods: {
-           handleBind: function() {},
-           handleSearch: function() {}
+           handleBind: function() {
+             let cardno = this.gzh_ret.map((item) => {
+               return item.cardno;
+             })
+             let cards = JSON.stringify(cardno);
+             let params = {
+               phone: this.mobile,
+               cards: cards
+             }
+             exchangeBind(params).then((res) => {
+               if(res.data.status === 0) {
+                 messageWarn('绑定成功');
+                 this.handleSearch();
+               }
+             })
+           },
+           handleSearch: function() {
+             let params = {
+               phone: this.mobile
+             }
+             getExchangeMess(params).then(res => {
+              if(res.data.status === 0) {
+                this.gzh_ret = res.data.data.gzh_ret;
+                if(this.gzh_ret.length > 0) {
+                  this.zh_gzh_name = this.gzh_ret[0].icusername;
+                  this.zh_gzh_phone = this.gzh_ret[0].ContactTelep;
+                }
+                this.xcx_ret = res.data.data.xcx_ret;
+                if(this.xcx_ret.length > 0) {
+                  this.zh_xcx_name = this.xcx_ret[0].name;
+                  this.zh_xcx_phone = this.xcx_ret[0].mobile;
+                }
+              }else{
+                messageWarn(res.data.msg);
+              }
+            })
+           }
         }
     }
 
