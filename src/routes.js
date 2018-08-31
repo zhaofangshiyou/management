@@ -23,6 +23,7 @@ import userBaseMeaasge from './views/nav5/userBaseMessage'
 import userChange from './views/nav5/userChange'
 import roleManage from './views/nav6/roleManage'
 import operatorManage from './views/nav6/operatorManage'
+import log from './views/nav6/log'
 import echarts from './views/charts/echarts.vue'
 import welcome from './views/welcome/welcome'
 import global from './views/nav7/global'
@@ -126,6 +127,7 @@ let routes = [
         children: [
             { path: '/role_manage', component: roleManage, name: '角色管理', id: 60 },
             { path: '/operator_manage', component: operatorManage, name: '操作员管理', id: 61},
+            { path: '/log', component: log, name: '操作日志', id: 62},
         ]
     },
     {
