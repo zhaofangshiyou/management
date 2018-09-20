@@ -181,7 +181,6 @@
                         children: [
                             {label: '角色管理', id: 60}, 
                             {label: '操作员管理', id: 61}, 
-                            {label: '操作日志', id: 62}
                         ]
                     },
                     {
@@ -255,11 +254,7 @@
             },
             //提交新增
             addSubmit: function() {
-                let checkboxs = this.$refs.tree.getCheckedKeys();
-                let permissions = checkboxs.filter((item) => {
-                  return item > 9
-                })
-                permissions = JSON.stringify(permissions)
+                let permissions = JSON.stringify(this.$refs.tree.getCheckedKeys());
                 this.addRole(this.addForm.role,permissions);
 
             },
@@ -286,14 +281,10 @@
            
             //编辑提交
             editSubmit() {
-                let checkboxs = this.$refs.treeEdit.getCheckedKeys();
-                let permissions = checkboxs.filter((item) => {
-                  return item > 9
-                })
                 let param = {
                   id: this.editForm.id,
                   name: this.editForm.name,
-                  permissions: JSON.stringify(permissions)
+                  permissions: JSON.stringify(this.$refs.treeEdit.getCheckedKeys())
                 }
                editRole(param,this.editForm.id).then(res => {
                    if(res.data.status === 0) {

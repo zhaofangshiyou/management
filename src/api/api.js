@@ -174,7 +174,6 @@ export const getRoleList= (params) => { return instance.get(`${url}/backen/roles
 //修改角色     /upd/:id
 export const editRole = (params,id) => { return instance.put(`${url}/backen/roles/upd/${id}`, qs.stringify(params)); };
 
-export const log= (params) => { return instance.get(`${url}/backen/dev/logs`, { params: params }); };
 //后台用户用户接口 
 
 //新增用户  /add
